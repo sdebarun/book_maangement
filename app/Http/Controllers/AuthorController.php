@@ -42,7 +42,7 @@ class AuthorController extends Controller
     }
 
     public function deleteAuthor($id = null){
-        echo "it works!";
+        echo $id;
     }
 
 }
