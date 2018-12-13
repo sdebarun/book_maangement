@@ -8,25 +8,40 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.title') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{asset('js/sidenav.js')}}"></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
-
+    
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{asset('css/sidenav.css')}}" rel="stylesheet"/>
+    @hasSection('additional_styles')
+        @yield('additional_styles')
+    @endif
+    <!-- Scripts -->
+    <script src="{{asset('js/jQuery.min.js')}}"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{asset('js/sidenav.js')}}"></script>
+   
+    @hasSection('additional_scripts')
+        @yield('additional_scripts')
+    @endif
+    <!-- Fonts -->
+    
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+
+    
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
         
             <div class="container">
-                @yield('sidenav')
+                <div id="mySidenav" class="sidenav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="/author/add">Add Author</a>
+                    <a href="/author/viewall">View Author</a>
+                    <a href="#">Clients</a>
+                    <a href="#">Contact</a>
+                </div> 
+                <span onclick="openNav()" class="nav-opener">&#9776;</span>
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>

@@ -11,19 +11,17 @@ class AuthorController extends Controller
 {
     protected $authorobj;
     protected $err;
+    
     function __construct(author $author){
         $this->authorobj = $author;
         $this->err=0;
     }
 
-
-
-    function addAuthor(){
-        return view('add-author',['error'=> $this->err]);
+    public function addAuthor(){
+        return view('add-author');
     }
 
-    
-    function createAuthor(Request $request){
+    public function createAuthor(Request $request){
         $request->validate([
             'authorName' => ['required', 'string', 'max:255','unique:author'],
         ]);
@@ -37,4 +35,14 @@ class AuthorController extends Controller
        return redirect('/author/add')->with('status', $this->err);
         
     } 
+
+    public function listAuthors(){
+        $data['retval'] = $this->authorobj->getAllauthor()->toArray();
+        return view('list-authors',$data);
+    }
+
+    public function deleteAuthor($id = null){
+        echo "it works!";
+    }
+
 }

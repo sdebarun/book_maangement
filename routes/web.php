@@ -23,7 +23,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/newhome','NewhomeController@index')->name('home');
-Route::group(['prefix'=>'author'], function(){
+Route::group(['prefix'=>'author','middleware'=>'auth'], function($request){
     Route::get('/add','AuthorController@addAuthor')->name('add');
     Route::post('/doAddauthor','AuthorController@createAuthor');
+    Route::get('/viewall','AuthorController@listAuthors');
+    Route::get('/delete/{$id}','AuthorController@deleteAuthor');
 });

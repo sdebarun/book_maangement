@@ -15,6 +15,10 @@ Class AuthorRepostiory implements AuthorInterface{
     public function addAuthor(array $data){
        return $this->authorModel->create($data);
     }
+
+    public function getAllauthor(){
+        return $this->authorModel->all();
+    }
 }
 
 ?>
