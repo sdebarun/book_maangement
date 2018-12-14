@@ -38,8 +38,8 @@
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                     <a href="/author/add">Add Author</a>
                     <a href="/author/viewall">View Author</a>
-                    <a href="#">Clients</a>
-                    <a href="#">Contact</a>
+                    <a href="/publisher/add">Add Publisher</a>
+                    <a href="/publisher/viewall/">View Publishers</a>
                 </div> 
                 <span onclick="openNav()" class="nav-opener">&#9776;</span>
                 <a class="navbar-brand" href="{{ url('/') }}">

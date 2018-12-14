@@ -13,14 +13,14 @@
 @section('content')
 <div class="container">
     <div class="panel panel-default">
-    <div class="panel-body"><h3>Authors</h3></div>
+    <div class="panel-body"><h3>Publishers</h3></div>
     <hr/>
     @if(session('status'))
         @if(session('status')==0)
-            <div class="alert alert-danger">Author could not be Deleted </div>
+            <div class="alert alert-danger">Publisher could not be Deleted </div>
         @endif
         @if(session('status')==1)   
-            <div class="alert alert-success">Author successfully Deleted </div>
+            <div class="alert alert-success">Publisher successfully Deleted </div>
         @endif 
     @endif 
     </div>
@@ -38,13 +38,13 @@
         @foreach($retval as $val)
             <tr align="center" class='test'>
                 <td>{{$sr++}}</td>
-                <td>{{$val['authorName']}}</td>
-                <td>{{$val['authorDescription']}}</td>
+                <td>{{$val['publisherName']}}</td>
+                <td>{{$val['publisherDesription']}}</td>
                 <td> 
-                    <span class='anchor-wrapper'><a href="/author/edit/{{$val['id']}}" class="btn btn-primary btn-sm">
+                    <span class='anchor-wrapper'><a href="/publisher/edit/{{$val['id']}}" class="btn btn-primary btn-sm">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
                     </a></span>
-                    <form action="{{route('author.delete', ['id' => $val['id']])}}" method="POST" id='formTodel'>
+                    <form action="{{route('publisher.delete', ['id' => $val['id']])}}" method="POST" id='formTodel'>
                         @csrf
                         <button type='submit' class="btn btn-danger btn-sm del" data-id="{{$val['id']}}">
                             <i class="fa fa-trash-o" aria-hidden="true"></i> 

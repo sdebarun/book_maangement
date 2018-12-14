@@ -23,6 +23,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/newhome','NewhomeController@index')->name('home');
+
 Route::group(['prefix'=>'author','middleware'=>'auth'], function($id){
     Route::get('/add','AuthorController@addAuthor')->name('add');
     Route::post('/doAddauthor','AuthorController@createAuthor');
@@ -30,4 +31,13 @@ Route::group(['prefix'=>'author','middleware'=>'auth'], function($id){
     Route::post('/delete/{id}','AuthorController@deleteAuthor')->name('author.delete');
     Route::get('/edit/{id}','AuthorController@editAuthor');
     Route::post('/doedit/{id}','AuthorController@doeditAuthor');
+});
+
+Route::group(['prefix'=>'publisher','middleware'=>'auth'],function(){
+    Route::get('/add','PublishersController@viewaddPublisher');
+    Route::post('/doAddPublisher','PublishersController@createPublisher');
+    Route::get('/viewall','PublishersController@listPublishers');
+    Route::post('/delete/{id}','PublishersController@deletePublisher')->name('publisher.delete');
+    Route::get('/edit/{id}','PublishersController@editPublisher');
+    Route::post('/doedit/{id}','PublishersController@doeditPublisher');
 });

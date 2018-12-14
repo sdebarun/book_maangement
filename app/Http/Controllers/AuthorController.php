@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use  \App\InterfaceContainer\AuthorInterface as author;
-use DB;
 use Illuminate\Support\Facades\Validator;
 
 class AuthorController extends Controller

@@ -3,10 +3,10 @@
 <div class="container">
     @if(session('status'))
         @if(session('status')==0)
-            <div class="alert alert-danger">Author could not be added </div>
+            <div class="alert alert-danger">Publisher could not be added </div>
         @endif
         @if(session('status')==1)   
-            <div class="alert alert-success">Author successfully added </div>
+            <div class="alert alert-success">Publisher successfully added </div>
         @endif 
     @endif 
 
@@ -20,15 +20,15 @@
         </div>
     @endif
 
-    <form action="/author/doAddauthor" method='POST'>
+    <form action="/publisher/doAddPublisher" method='POST'>
         @csrf
         <div class="form-group">
-            <label for="authorName">Name of the Author</label>
-            <input type="text" class="form-control" id="authorName" name='authorName'>
+            <label for="publisherName">Name of the Publisher</label>
+            <input type="text" class="form-control" id="publisherName" name='publisherName'>
         </div>
         <div class="form-group">
-            <label for="authorDescription">Description (optional):</label>
-            <textarea class="form-control" rows="5" id="authorDescription" name='authorDescription'></textarea>
+            <label for="publisherDesription">Description (optional):</label>
+            <textarea class="form-control" rows="5" id="publisherDesription" name='publisherDesription'></textarea>
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
     </form>
