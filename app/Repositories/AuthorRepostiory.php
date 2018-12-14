@@ -19,6 +19,18 @@ Class AuthorRepostiory implements AuthorInterface{
     public function getAllauthor(){
         return $this->authorModel->all();
     }
+
+    public function deleteAuthor($id){
+        return $this->authorModel->find($id)->delete();
+    }
+
+    public function getAuthorbyid($id){
+        return $this->authorModel->find($id);
+    }
+
+    public function updateAuthor($id,$data){
+        return $this->authorModel->find($id)->update($data);
+    }
 }
 
 ?>

@@ -29,4 +29,6 @@ Route::group(['prefix'=>'author','middleware'=>'auth'], function($id){
     Route::get('/viewall','AuthorController@listAuthors');
     //Route::get('/delete/{$id}','AuthorController@deleteAuthor');
     Route::post('/delete/{id}','AuthorController@deleteAuthor')->name('author.delete');
+    Route::get('/edit/{id}','AuthorController@editAuthor');
+    Route::post('/doedit/{id}','AuthorController@doeditAuthor');
 });
