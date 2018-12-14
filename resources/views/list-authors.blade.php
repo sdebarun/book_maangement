@@ -40,9 +40,9 @@
                 <td>{{$val['authorName']}}</td>
                 <td>{{$val['authorDescription']}}</td>
                 <td> 
-                    <a href="/author/edit/{{$val['id']}}" class="btn btn-primary btn-sm">
+                    <span class='anchor-wrapper'><a href="/author/edit/{{$val['id']}}" class="btn btn-primary btn-sm">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
-                    </a>
+                    </a></span>
                     <form action="{{route('author.delete', ['id' => $val['id']])}}" method="POST" id='formTodel'>
                         @csrf
                         <button type='submit' class="btn btn-primary btn-sm del" data-id="{{$val['id']}}">
