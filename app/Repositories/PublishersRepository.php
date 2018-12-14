@@ -8,7 +8,7 @@ use App\Publishers;
 Class PublishersRepository implements PublishersInterface{
     protected $publisherModel; 
 
-    function __construct(Publishers $publishers){
+    public function __construct(Publishers $publishers){
         $this->publisherModel = $publishers;
     }
 

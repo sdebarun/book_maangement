@@ -41,3 +41,8 @@ Route::group(['prefix'=>'publisher','middleware'=>'auth'],function(){
     Route::get('/edit/{id}','PublishersController@editPublisher');
     Route::post('/doedit/{id}','PublishersController@doeditPublisher');
 });
+
+Route::group(['prefix'=>'books','middleware'=>'auth'],function(){
+    Route::get('/add','BooksController@AddNewBooks');
+    Route::post('/doAddbook','BooksController@doAddbook');
+});

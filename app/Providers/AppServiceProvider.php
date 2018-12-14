@@ -25,5 +25,6 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind('App\InterfaceContainer\AuthorInterface','App\Repositories\AuthorRepostiory');
         $this->app->bind('App\InterfaceContainer\PublishersInterface','App\Repositories\PublishersRepository');
+        $this->app->bind('App\InterfaceContainer\BooksInterface','App\Repositories\BooksRepository');
     }
 }
