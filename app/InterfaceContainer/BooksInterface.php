@@ -1,8 +1,7 @@
 <?php 
-namespace App\interfaceContainer;
+namespace App\InterfaceContainer;
 
 interface BooksInterface {
-    public function addbook(array $data);
-    public function authorList();
+    public function addbook($data);
 }
 ?>

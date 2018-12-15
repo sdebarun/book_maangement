@@ -20,14 +20,14 @@
             </div>
         @endif
 
-        <form action="/books/doAddbook" method='POST'>
+        <form action="/books/doAddbook" method='GET'>
             @csrf
             <div class="form-group">
                 <label for="bookName">Name of the Book</label>
                 <input type="text" class="form-control" id="bookName" name='bookName'>
             </div>
             <div class="form-group">
-            <label for="authors">Author oof the Book</label>
+            <label for="authors">Author of the Book</label>
             <select multiple name="authors[]" class="form-control" id="authors">
                 @foreach($authors as $author)
                     <option value="{{$author['id']}}">{{$author['authorName']}}</option>

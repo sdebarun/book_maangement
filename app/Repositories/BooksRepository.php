@@ -2,23 +2,15 @@
 namespace App\Repositories;
 use App\InterfaceContainer\BooksInterface;
 use App\Books;
-use App\Author;
 
 class BooksRepository implements BooksInterface{
     protected $booksModel;
-    protected $authorModel;
-    public function __construct(Books $book, author $authors){
+
+    public function __construct (Books $book){
         $this->booksModel = $book;
-        $this->authorModel = $authors;
     }
 
-    public function addbook(array $data){
+    public function addbook($data){
         return $this->booksModel->create($data);
     }
-
-    public function authorList(){
-        return $this->authorModel->all();
-    }
 }
-
-?>
