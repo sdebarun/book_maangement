@@ -41,6 +41,7 @@
                     <a href="/publisher/add">Add Publisher</a>
                     <a href="/publisher/viewall/">View Publishers</a>
                     <a href="/books/add/">Add Book</a>
+                    <a href="/books/viewall/">View all Book</a>
                 </div> 
                 <span onclick="openNav()" class="nav-opener">&#9776;</span>
                 <a class="navbar-brand" href="{{ url('/') }}">

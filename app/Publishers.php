@@ -11,4 +11,5 @@ class Publishers extends Model
     protected $table =  'publishers';
     protected $fillable = ['token','publisherName','publisherDesription'];
     protected $dates = ['deleted_at'];
+
 }

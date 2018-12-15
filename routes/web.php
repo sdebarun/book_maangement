@@ -45,4 +45,7 @@ Route::group(['prefix'=>'publisher','middleware'=>'auth'],function(){
 Route::group(['prefix'=>'books','middleware'=>'auth'],function(){
     Route::get('/add','BookController@AddNewBooks');
     Route::post('/doAddbook','BookController@doAddbook');
+    Route::get('/viewall','BookController@viewAllbooks');
+    Route::post('/delete/{id}','BookController@deleteBook')->name('books.delete');
+    Route::get('/edit/{id}','BookController@editBook');
 });

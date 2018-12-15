@@ -30,6 +30,7 @@
                 <th>Sr.</th>
                 <th>Name</th>
                 <th>Description</th>
+                <th>Publisher</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -38,13 +39,14 @@
         @foreach($retval as $val)
             <tr align="center" class='test'>
                 <td>{{$sr++}}</td>
-                <td>{{$val['publisherName']}}</td>
-                <td>{{$val['publisherDesription']}}</td>
+                <td>{{$val['bookName']}}</td>
+                <td>{{$val['bookDescription']}}</td>
+                <td>{{$val['publisher_id']}}</td>
                 <td> 
-                    <span class='anchor-wrapper'><a href="/publisher/edit/{{$val['id']}}" class="btn btn-primary btn-sm">
+                    <span class='anchor-wrapper'><a href="/books/edit/{{$val['id']}}" class="btn btn-primary btn-sm">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
                     </a></span>
-                    <form action="{{route('publisher.delete', ['id' => $val['id']])}}" method="POST" id='formTodel'>
+                    <form action="{{route('books.delete', ['id' => $val['id']])}}" method="POST" id='formTodel'>
                         @csrf
                         <button type='submit' class="btn btn-danger btn-sm del" data-id="{{$val['id']}}">
                             <i class="fa fa-trash-o" aria-hidden="true"></i> 
@@ -56,8 +58,10 @@
         </tbody>
         <tfoot>
             <tr align='center'>
+                <th>Sr.</th>
                 <th>Name</th>
-                <th>Position</th>
+                <th>Description</th>
+                <th>Publisher</th>
                 <th>Actions</th>
             </tr>
         </tfoot>

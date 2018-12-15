@@ -50,8 +50,10 @@ class BookController extends Controller
             $this->status = 0;
         }
         return redirect('/books/add')->with('status', $this->status);
-        
-        
+    }
 
+    public function viewAllbooks(){
+        $data['retval'] = $this->varBook->getAllBooks();
+        return view('list-books',$data);
     }
 }

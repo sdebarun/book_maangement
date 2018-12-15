@@ -13,4 +13,8 @@ class BooksRepository implements BooksInterface{
     public function addbook($data){
         return $this->booksModel->create($data);
     }
+
+    public function getAllBooks(){
+        return $this->booksModel->all();
+    }
 }
