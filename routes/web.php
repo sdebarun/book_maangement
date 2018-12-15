@@ -43,6 +43,6 @@ Route::group(['prefix'=>'publisher','middleware'=>'auth'],function(){
 });
 
 Route::group(['prefix'=>'books','middleware'=>'auth'],function(){
-    Route::get('/add','BooksController@AddNewBooks');
+    Route::get('/add','BookController@AddNewBooks');
     Route::post('/doAddbook','BookController@doAddbook');
 });

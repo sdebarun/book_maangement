@@ -17,7 +17,7 @@ class CreateBooks extends Migration
             $table->increments('id');
             $table->string('bookName');
             $table->integer('publisher_id')->unsigned();
-            $table->text('bookDescription');
+            $table->text('bookDescription',500)->nullable();
             $table->timestamps();
         });
     }
