@@ -27,16 +27,11 @@
                 <input type="text" class="form-control" id="bookName" name='bookName'>
             </div>
             <div class="form-group">
-            <label for="authors">Name of the Book</label>
+            <label for="authors">Author oof the Book</label>
             <select multiple name="authors[]" class="form-control" id="authors">
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="opel">Opel</option>
-                <option value="audi">Audi</option>
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="opel">Opel</option>
-                <option value="audi">Audi</option>
+                @foreach($authors as $author)
+                    <option value="{{$author['id']}}">{{$author['authorName']}}</option>
+                @endforeach
             </select>
             </div>
             <div class="form-group">

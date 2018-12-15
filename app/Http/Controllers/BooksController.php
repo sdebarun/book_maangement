@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\InterfaceContainer\BooksInterface as books;
-use App\InterfaceContainer\AuthorInterface as author;
-use  \App\InterfaceContainer\PublishersInterface as publisherInterface;
+//use  \App\InterfaceContainer\AuthorInterface as author;
+//use  \App\InterfaceContainer\PublishersInterface as publisherInterface;
 use App\Publishers;
+use App\Author;
 class BooksController extends Controller
 {
     protected $booksobj;
@@ -23,9 +24,11 @@ class BooksController extends Controller
 
     public function AddNewBooks(){
         // $data['publishers1'] = $this->publisherobj->getAllPublishers()->toArray();
+        //$data['authors1'] = $this->authorobj->getAllauthor()->toArray();
         // print_r($data);
         // die;
         $data['publishers'] = Publishers::all()->toArray();
+        $data['authors'] = Author::all()->toArray();
         return view('add-book',$data);
     }
 
