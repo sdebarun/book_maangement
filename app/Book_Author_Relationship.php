@@ -11,4 +11,8 @@ class Book_Author_Relationship extends Model
     protected $table =  'books_to_author';
     protected $fillable = ['book_id','author_id'];
     protected $dates = ['deleted_at'];
+
+    public function getAuthorName(){
+        return $this->belongsTo('App\Author','author_id','id')->pluck('authorName')->all();
+    }
 }

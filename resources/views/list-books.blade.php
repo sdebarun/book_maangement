@@ -29,6 +29,7 @@
             <tr align="center">
                 <th>Sr.</th>
                 <th>Name</th>
+                <th>Author</th>
                 <th>Description</th>
                 <th>Publisher</th>
                 <th>Actions</th>
@@ -40,6 +41,11 @@
             <tr align="center" class='test'>
                 <td>{{$sr++}}</td>
                 <td>{{$val['bookName']}}</td>
+                <td class='authors'>
+                    @foreach($val['authors'] as $author)
+                        {{$author}}
+                    @endforeach
+                </td>
                 <td>{{$val['bookDescription']}}</td>
                 <td>
                     @foreach( $val['publishers'] as $key=>$id)
@@ -60,12 +66,13 @@
                     </form>
                 </td>
             </tr>
-            @endforeach
+        @endforeach
         </tbody>
         <tfoot>
             <tr align='center'>
                 <th>Sr.</th>
                 <th>Name</th>
+                <th>Author</th>
                 <th>Description</th>
                 <th>Publisher</th>
                 <th>Actions</th>

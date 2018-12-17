@@ -13,4 +13,8 @@ class BookAuthorRelationRepository implements BookAuthorRelationInterface{
     public function CreateRelation($data){
         return $this->relationModel->create($data); 
     }
+
+    public function authorName(){
+        return $this->relationModel->getAuthorName();
+    }
 }
