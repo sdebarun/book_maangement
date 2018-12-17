@@ -14,7 +14,7 @@ class BookAuthorRelationRepository implements BookAuthorRelationInterface{
         return $this->relationModel->create($data); 
     }
 
-    public function authorName(){
-        return $this->relationModel->getAuthorName();
+    public function deleteRel($id){
+        return $this->relationModel->where('book_id',$id)->delete(); 
     }
 }

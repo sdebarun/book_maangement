@@ -23,8 +23,8 @@ class Books extends Model
     
     public function toArray(){
         $array = parent::toArray();
-        $array['publishers'] = $this->getPublisher->pluck('id','publisherName')->all();
-        $array['authors'] = $this->getAuthorsid->pluck('authorName')->all();
+        $array['publishers'] = $this->getPublisher->pluck('publisherName','id')->all();
+        $array['authors'] = $this->getAuthorsid->pluck('authorName','id')->all();
         return $array;
     }
 }

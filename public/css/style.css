@@ -2,3 +2,6 @@
     float: left;
    padding-left:25px
 }
+#allauthors td{
+    vertical-align: middle;
+}

@@ -21,4 +21,12 @@ class BooksRepository implements BooksInterface{
     public function getThepublisher(){
         return $this->booksModel->getPublisher();
     }
+
+    public function deletebook($id){
+        return $this->booksModel->where('id',$id)->delete();
+    }
+
+    public function getBookbyid($id){
+        return $this->booksModel->find($id);
+    }
 }

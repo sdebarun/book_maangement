@@ -13,14 +13,14 @@
 @section('content')
 <div class="container">
     <div class="panel panel-default">
-    <div class="panel-body"><h3>Publishers</h3></div>
+    <div class="panel-body"><h3>All Books</h3></div>
     <hr/>
     @if(session('status'))
         @if(session('status')==0)
-            <div class="alert alert-danger">Publisher could not be Deleted </div>
+            <div class="alert alert-danger">Book could not be Deleted </div>
         @endif
         @if(session('status')==1)   
-            <div class="alert alert-success">Publisher successfully Deleted </div>
+            <div class="alert alert-success">Book successfully Deleted </div>
         @endif 
     @endif 
     </div>
@@ -28,7 +28,7 @@
         <thead>
             <tr align="center">
                 <th>Sr.</th>
-                <th>Name</th>
+                <th>Book Name</th>
                 <th>Author</th>
                 <th>Description</th>
                 <th>Publisher</th>
@@ -42,15 +42,15 @@
                 <td>{{$sr++}}</td>
                 <td>{{$val['bookName']}}</td>
                 <td class='authors'>
-                    @foreach($val['authors'] as $author)
-                        {{$author}}
+                    @foreach($val['authors'] as $key => $author)
+                        <p>{{$author}}</p>
                     @endforeach
                 </td>
                 <td>{{$val['bookDescription']}}</td>
                 <td>
                     @foreach( $val['publishers'] as $key=>$id)
-                        @if($val['publisher_id'] == $id)
-                            {{$key}}
+                        @if($val['publisher_id'] == $key)
+                            {{$id}}
                         @endif    
                     @endforeach   
                 </td>
@@ -71,7 +71,7 @@
         <tfoot>
             <tr align='center'>
                 <th>Sr.</th>
-                <th>Name</th>
+                <th>Book Name</th>
                 <th>Author</th>
                 <th>Description</th>
                 <th>Publisher</th>

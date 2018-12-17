@@ -58,4 +58,32 @@ class BookController extends Controller
         // print_r($data['retval']);
         return view('list-books',$data);
     }
+
+    public function deleteBook($id = null){
+        $retval['bookdelstatus'] = $this->varBook->deleteBook($id);
+        $retval['relationdelsatus'] = $this->RelationObj->deleteRel($id);
+        if($retval['bookdelstatus'] > 0 && $retval['relationdelsatus'] > 0){
+            $this->status = 1;
+        }
+        if($retval['bookdelstatus'] == 0 || $retval['relationdelsatus'] == 0){
+            $this->status = 0;
+        }
+        else{
+        $this->status = 0;
+        }
+       return redirect('/books/viewall')->with('status', $this->status);
+    }
+
+    public function editBook($id = null){
+        $data['bookDetails'] = $this->varBook->getBookbyid($id)->toArray();
+        $data['publisherlist'] = $this->varpublisher->getAllPublishers()->toArray();
+        $data['authorlist'] = $this->varauthor->getAllauthor()->toArray();
+        // echo "<pre>";
+        // print_r($data);
+        return view("single-book",$data);
+    }
+
+    public function doEditbook($id = null){
+        echo $id;
+    }
 }
