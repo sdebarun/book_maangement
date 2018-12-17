@@ -24,7 +24,7 @@
             </div>
         @endif
 
-        <form action="/books/doEditbook/{{$bookDetails['id']}}}}" method='POST'>
+        <form action="/books/doedit/{{$bookDetails['id']}}" method='POST'>
             @csrf
             <div class="form-group">
                 <label for="bookName">Name of the Book</label>
@@ -33,14 +33,13 @@
             <div class="form-group">
             <label for="authors">Author(s) of the Book</label>
             <select multiple name="authors[]" class="form-control" id="authors">
+                
                 @foreach($authorlist as $author)
-                    @foreach($bookDetails["authors"] as $authorId => $authorName)
-                        @if($author['id'] == $authorId)
-                            <?php $selected1 = 'selected'; ?>
-                        @else 
+                    @if(array_key_exists($author['id'],$bookDetails["authors"]))
+                        <?php $selected1 = 'selected'; ?>
+                    @else 
                         <?php $selected1 = ''; ?>   
-                        @endif  
-                    @endforeach
+                    @endif 
                     <option value="{{$author['id']}}" {{$selected1}}>{{$author['authorName']}}</option>
                 @endforeach
             </select>

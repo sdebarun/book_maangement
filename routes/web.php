@@ -33,7 +33,7 @@ Route::group(['prefix'=>'author','middleware'=>'auth'], function($id){
     Route::post('/doedit/{id}','AuthorController@doeditAuthor');
 });
 
-Route::group(['prefix'=>'publisher','middleware'=>'auth'],function(){
+Route::group(['prefix'=>'publisher','middleware'=>'auth'],function($id){
     Route::get('/add','PublishersController@viewaddPublisher');
     Route::post('/doAddPublisher','PublishersController@createPublisher');
     Route::get('/viewall','PublishersController@listPublishers');
@@ -42,10 +42,11 @@ Route::group(['prefix'=>'publisher','middleware'=>'auth'],function(){
     Route::post('/doedit/{id}','PublishersController@doeditPublisher');
 });
 
-Route::group(['prefix'=>'books','middleware'=>'auth'],function(){
+Route::group(['prefix'=>'books','middleware'=>'auth'],function($id){
     Route::get('/add','BookController@AddNewBooks');
     Route::post('/doAddbook','BookController@doAddbook');
     Route::get('/viewall','BookController@viewAllbooks');
     Route::post('/delete/{id}','BookController@deleteBook')->name('books.delete');
     Route::get('/edit/{id}','BookController@editBook');
+    Route::post('/doedit/{id}','BookController@doEditbook');
 });

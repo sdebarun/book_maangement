@@ -78,6 +78,7 @@ class BookController extends Controller
         $data['bookDetails'] = $this->varBook->getBookbyid($id)->toArray();
         $data['publisherlist'] = $this->varpublisher->getAllPublishers()->toArray();
         $data['authorlist'] = $this->varauthor->getAllauthor()->toArray();
+        $data['selected1'] = '';
         // echo "<pre>";
         // print_r($data);
         return view("single-book",$data);
