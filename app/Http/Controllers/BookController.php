@@ -53,7 +53,9 @@ class BookController extends Controller
     }
 
     public function viewAllbooks(){
-        $data['retval'] = $this->varBook->getAllBooks();
+        $data['retval'] = $this->varBook->getAllBooks()->toArray();
+        // echo "<pre>";
+        // print_r($data['retval']);
         return view('list-books',$data);
     }
 }

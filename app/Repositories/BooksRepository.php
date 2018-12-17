@@ -17,4 +17,8 @@ class BooksRepository implements BooksInterface{
     public function getAllBooks(){
         return $this->booksModel->all();
     }
+
+    public function getThepublisher(){
+        return $this->booksModel->getPublisher();
+    }
 }

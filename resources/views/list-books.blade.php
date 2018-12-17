@@ -41,7 +41,13 @@
                 <td>{{$sr++}}</td>
                 <td>{{$val['bookName']}}</td>
                 <td>{{$val['bookDescription']}}</td>
-                <td>{{$val['publisher_id']}}</td>
+                <td>
+                    @foreach( $val['publishers'] as $key=>$id)
+                        @if($val['publisher_id'] == $id)
+                            {{$key}}
+                        @endif    
+                    @endforeach   
+                </td>
                 <td> 
                     <span class='anchor-wrapper'><a href="/books/edit/{{$val['id']}}" class="btn btn-primary btn-sm">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
