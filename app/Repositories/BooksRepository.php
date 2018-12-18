@@ -29,4 +29,8 @@ class BooksRepository implements BooksInterface{
     public function getBookbyid($id){
         return $this->booksModel->find($id);
     }
+
+    public function updateBookdata($id,$data){
+        return $this->booksModel->find($id)->update($data);
+    }
 }
