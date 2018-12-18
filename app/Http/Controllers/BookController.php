@@ -85,13 +85,23 @@ class BookController extends Controller
         return view("single-book",$data);
     }
 
+    // public function doEditbook($id = null,Request $request){
+    //     $authorDetails = $request->input('authors');
+    //     print_r($authorDetails);
+         
+    // }
     public function doEditbook($id = null,Request $request){
+        $request->validate([
+            'bookName' => ['required', 'string', 'max:255'],
+            'authors' => ['required'],
+            'publisher_id' => ['required','integer']
+        ]);
         $retval['bookDataupdate'] = $this->varBook->updateBookdata($id,$request->all('bookName','publisher_id','bookDescription'));
-        $retval['relDelete'] = $this->RelationObj->deleteRel($id);
-         $authorDetails = $request->input('authors');
-         echo "<pre>";
-         print_r($authorDetails);
-         foreach ($authorDetails as $authorId){
+        $retval['relDelete'] = $this->RelationObj->destroyData($id);
+        $authorDetails = $request->input('authors');
+        echo "<pre>";
+        print_r($authorDetails);
+        foreach ($authorDetails as $authorId){
             echo $id;
             $data = array("book_id"=>$id,'author_id'=> $authorId);
             print_r($data);
@@ -99,5 +109,14 @@ class BookController extends Controller
             $retval['authorRelupdate'] = $this->RelationObj->updateRelationalData($data);
         }
         print_r($retval);
+        echo $retval['authorRelupdate']['id'];
+        if($retval['relDelete'] > 0 && $retval['bookDataupdate'] > 0 && $retval['authorRelupdate']['id']){
+                $this->status = 1;
+        }
+        else{
+            $this->status = 0;
+        }
+        return redirect("/books/edit/$id")->with('status', $this->status);
     }
+    
 }

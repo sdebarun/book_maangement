@@ -33,7 +33,6 @@
             <div class="form-group">
             <label for="authors">Author(s) of the Book</label>
             <select multiple name="authors[]" class="form-control" id="authors">
-                
                 @foreach($authorlist as $author)
                     @if(array_key_exists($author['id'],$bookDetails["authors"]))
                         <?php $selected1 = 'selected'; ?>

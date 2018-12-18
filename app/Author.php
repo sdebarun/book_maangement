@@ -12,5 +12,5 @@ class Author extends Model
     protected $fillable = ['token','authorName','authorDescription'];
     protected $dates = ['deleted_at'];
 
-   
+    
 }
