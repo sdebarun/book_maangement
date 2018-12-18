@@ -53,9 +53,8 @@ class BookController extends Controller
     }
 
     public function viewAllbooks(){
-        $data['retval'] = $this->varBook->getAllBooks()->toArray();
-        // echo "<pre>";
-        // print_r($data['retval']);
+        $data['retval'] = $this->varBook->getAllBooks();
+        dd($data['retval']);
         return view('list-books',$data);
     }
 
@@ -84,7 +83,19 @@ class BookController extends Controller
         return view("single-book",$data);
     }
 
-    public function doEditbook($id = null){
-        echo $id;
+    public function doEditbook($id = null,Request $request){
+        $retval['bookDataupdate'] = $this->varBook->updateBookdata($id,$request->all('bookName','publisher_id','bookDescription'));
+        $retval['relDelete'] = $this->RelationObj->deleteRel($id);
+         $authorDetails = $request->input('authors');
+         echo "<pre>";
+         print_r($authorDetails);
+         foreach ($authorDetails as $authorId){
+            echo $id;
+            $data = array("book_id"=>$id,'author_id'=> $authorId);
+            print_r($data);
+            
+            $retval['authorRelupdate'] = $this->RelationObj->updateRelationalData($data);
+        }
+        print_r($retval);
     }
 }

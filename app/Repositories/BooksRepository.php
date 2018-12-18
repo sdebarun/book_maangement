@@ -15,7 +15,7 @@ class BooksRepository implements BooksInterface{
     }
 
     public function getAllBooks(){
-        return $this->booksModel->all();
+        return $this->booksModel->toSql();
     }
 
     public function getThepublisher(){
@@ -28,5 +28,9 @@ class BooksRepository implements BooksInterface{
 
     public function getBookbyid($id){
         return $this->booksModel->find($id);
+    }
+
+    public function updateBookdata($id,$data){
+        return $this->booksModel->find($id)->update($data);
     }
 }

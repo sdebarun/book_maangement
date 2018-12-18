@@ -12,5 +12,7 @@ class Author extends Model
     protected $fillable = ['token','authorName','authorDescription'];
     protected $dates = ['deleted_at'];
 
-   
+    public function getAuthorsid(){
+        return $this->hasMany('App\author','books_to_author','author_id','book_id');
+    }
 }

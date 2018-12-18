@@ -7,5 +7,6 @@ interface BooksInterface {
     public function getThepublisher();
     public function deleteBook($id);
     public function getBookbyid($id);
+    public function updateBookdata($id,$data);
 }
 ?>
