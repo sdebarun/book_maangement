@@ -110,6 +110,7 @@
     bottom: 0;
     background-color:rgba(6, 22, 9, 0.2); 
     cursor: pointer;
+    z-index: 3;
 }
 .submenu {
   list-style: none;
@@ -124,7 +125,7 @@
 #mySidenav {
   line-height: 1;
 }
-
+.navbar-laravel{z-index: 5;}
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}

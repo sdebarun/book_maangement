@@ -34,15 +34,6 @@
                 <textarea class="form-control" rows="5" id="authorDescription" name='authorDescription'>{{$retval['authorDescription']}}</textarea>
             </div>
             <button type="submit" class="btn btn-success">Submit</button>
-         </form>
-        <div class="container">
-        <h2>Pager</h2>
-        <p>The .pager class provides previous and next buttons (links):</p>                  
-        <ul class="pager">
-            <li><a href="{{url('author/viewall')}}">back</a></li>
-            <li><a href="#">Next</a></li>
-        </ul>
-        </div>
-
+        </form>
     </div>
 @endsection
