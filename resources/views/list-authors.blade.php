@@ -61,8 +61,9 @@
         </tbody>
         <tfoot>
             <tr>
+                <th>Sr.</th>
                 <th>Name</th>
-                <th>Position</th>
+                <th>Description</th>
                 <th>Actions</th>
             </tr>
         </tfoot>
