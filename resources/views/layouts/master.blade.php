@@ -30,22 +30,33 @@
     
 </head>
 <body>
+
     <div id="app">
+    <div id="overlay"></div>
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
         
             <div class="container">
                 <div id="mySidenav" class="sidenav">
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                    <a href="/author/add">Add Author</a>
-                    <a href="/author/viewall">View Author</a>
-                    <a href="/publisher/add">Add Publisher</a>
-                    <a href="/publisher/viewall/">View Publishers</a>
-                    <a href="/books/add/">Add Book</a>
-                    <a href="/books/viewall/">View all Book</a>
+                    <li class='parent-menu'><a href='#'>Author</a></li>
+                        <ul class='submenu'>
+                            <li><a href="/author/add">Add Author</a></li>
+                            <li><a href="/author/viewall">View Author</a></li> 
+                        </ul>
+                    <li class='parent-menu'><a href='#'>Publisher</a></li>
+                    <ul class='submenu'>
+                        <li><a href="/publisher/add">Add Publisher</a></li>
+                        <li><a href="/publisher/viewall/">View Publishers</a></li>
+                    </ul>
+                    <li class='parent-menu'><a href='#'>Books</a></li>
+                    <ul class='submenu'>
+                        <li><a href="/books/add/">Add Book</a></li>
+                        <li><a href="/books/viewall/">View all Book</a></li>
+                    </ul>
                 </div> 
                 <span onclick="openNav()" class="nav-opener">&#9776;</span>
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                <a class="navbar-brand" href="{{ url('/newhome') }}">
+                    {{ config('app.title') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>

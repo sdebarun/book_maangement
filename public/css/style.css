@@ -5,3 +5,32 @@
 #allauthors td{
     vertical-align: middle;
 }
+body {
+    transition: background-color .5s;
+}
+.pagination {
+    display: inline-block;
+  }
+  
+  .pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+  }
+.pagination a:hover:not(.active) {background-color: #ddd;}
+.pagination a:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  
+  .pagination a:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+@media screen and (max-height: 450px){
+    .navbar-light .navbar-toggler-icon {
+        background-image: url(https://cdn3.iconfinder.com/data/icons/faticons/32/user-01-512.png) !important;
+    } 
+}

@@ -39,7 +39,12 @@
             <tr align="center" class='test'>
                 <td>{{$sr++}}</td>
                 <td>{{$val['authorName']}}</td>
-                <td>{{$val['authorDescription']}}</td>
+                <td>@if(empty($val['authorDescription']))
+                        N/A
+                    @else
+                        {{$val['authorDescription']}}
+                    @endif    
+                </td>
                 <td> 
                     <span class='anchor-wrapper'><a href="/author/edit/{{$val['id']}}" class="btn btn-primary btn-sm">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
@@ -56,8 +61,9 @@
         </tbody>
         <tfoot>
             <tr>
+                <th>Sr.</th>
                 <th>Name</th>
-                <th>Position</th>
+                <th>Description</th>
                 <th>Actions</th>
             </tr>
         </tfoot>

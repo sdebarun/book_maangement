@@ -1,6 +1,10 @@
 @extends('layouts.master')
 @section('forms')
 <div class="container">
+    <div class="panel panel-default">
+        <div class="panel-body"><h3>Add New Publisher</h3></div>
+    </div>    
+    <hr/>
     @if(session('status'))
         @if(session('status')==0)
             <div class="alert alert-danger">Publisher could not be added </div>
