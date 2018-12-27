@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,4 +48,8 @@ Route::group(['prefix'=>'books','middleware'=>'auth'],function($id){
     Route::post('/delete/{id}','BookController@deleteBook')->name('books.delete');
     Route::get('/edit/{id}','BookController@editBook');
     Route::post('/doedit/{id}','BookController@doEditbook');
+});
+
+Route::group(['prefix' => "test"], function(){
+    Route::get('testgetconfig', 'TestController@testConfigGetcall');
 });

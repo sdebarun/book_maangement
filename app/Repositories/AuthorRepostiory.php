@@ -29,7 +29,7 @@ Class AuthorRepostiory implements AuthorInterface{
     }
 
     public function updateAuthor($id,$data){
-        return $this->authorModel->find($id)->update($data);
+        return $this->authorModel->fppind($id)->update($data);
     }
 }
 
