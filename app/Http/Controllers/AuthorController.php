@@ -46,7 +46,7 @@ class AuthorController extends Controller
         $retval = '';
         $Is_attached = $this->rel->getCount($id);
         if($Is_attached > 0){
-            $msg = 'cannot delete as '.$Is_attached.' book(s) is attached with the author.';
+            $msg = $Is_attached;
         }
         else{
             $msg = '';

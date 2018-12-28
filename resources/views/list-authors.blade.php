@@ -24,7 +24,7 @@
         @endif 
     @endif 
     @if(session('msg'))
-        <div class="alert alert-danger">{{session('msg')}}</div>
+        <div class="alert alert-danger"><b>Failed to Delete!</b> {{session('msg')}} book(s) are linked with this author.</div>
     @endif
     </div>
     <table id="allauthors" class="table table-striped table-bordered hover" style="width:100%">
