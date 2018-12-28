@@ -13,7 +13,7 @@
 @section('content')
 <div class="container">
     <div class="panel panel-default">
-    <div class="panel-body"><h3>All Books</h3></div>
+        <div class="panel-body"><h3>All Books</h3></div>
     <hr/>
     @if(session('status'))
         @if(session('status')==0)
@@ -24,6 +24,15 @@
         @endif 
     @endif 
     </div>
+    <div class='text-right datefilterWrapper'>
+        <div class="form-group">
+            <label for="dateFilter">Select Data</label>
+            <select id='dateFilter' class='form-control' name='dateFilter'>
+                <option value="{{date('d-m-Y')}}">Today</option>
+                <option value="{{date('d-m-Y', strtotime('-7 days'))}}">7 days</option>
+            </select>
+        </div>    
+    </div>
     <table id="allauthors" class="table table-striped table-bordered hover" style="width:100%">
         <thead>
             <tr align="center">
@@ -32,6 +41,7 @@
                 <th>Author</th>
                 <th>Description</th>
                 <th>Publisher</th>
+                <th>Added on</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -54,6 +64,9 @@
                         @endif    
                     @endforeach   
                 </td>
+                <td>
+                    {{date('d-m-Y',strtotime($val['created_at']))}}
+                </td>
                 <td> 
                     <span class='anchor-wrapper'><a href="/books/edit/{{$val['id']}}" class="btn btn-primary btn-sm">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
@@ -75,6 +88,7 @@
                 <th>Author</th>
                 <th>Description</th>
                 <th>Publisher</th>
+                <th>Added on</th>
                 <th>Actions</th>
             </tr>
         </tfoot>

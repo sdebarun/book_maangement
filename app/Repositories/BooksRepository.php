@@ -37,4 +37,8 @@ class BooksRepository implements BooksInterface{
     public function getCount($id){
         return $this->booksModel->where('publisher_id',$id)->count();
     }
+    //testing pagination
+    public function getAllBookspaginated(){
+        return $this->booksModel->paginate(3);
+    }
 }

@@ -8,5 +8,7 @@ interface BooksInterface {
     public function deleteBook($id);
     public function getBookbyid($id);
     public function getCount($id);
+    //testing pagination
+    public function getAllBookspaginated();
 }
 ?>

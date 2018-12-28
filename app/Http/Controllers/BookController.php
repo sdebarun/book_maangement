@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\InterfaceContainer\{BooksInterface, AuthorInterface,PublishersInterface,BookAuthorRelationInterface};
-
+use Illuminate\Support\Facades\DB;
 class BookController extends Controller
 {
     protected $varBook;
@@ -113,5 +113,15 @@ class BookController extends Controller
         }
         return redirect("/books/edit/$id")->with('status', $this->status);
     }
+
+    //testing pagination 
+    public function viewAllbooksPaginated(){
+        $data['retval'] = $this->varBook->getAllBookspaginated();
+        echo "<pre>";
+        print_r($data);
+        return view('list-booksPaginated',$data);
+    }
+
+
     
 }

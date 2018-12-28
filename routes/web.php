@@ -50,3 +50,5 @@ Route::group(['prefix'=>'books','middleware'=>'auth'],function($id){
     Route::get('/edit/{id}','BookController@editBook');
     Route::post('/doedit/{id}','BookController@doEditbook');
 });
+
+Route::get('booksPaginated','BookController@viewAllbooksPaginated');
