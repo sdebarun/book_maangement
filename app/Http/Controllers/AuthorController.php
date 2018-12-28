@@ -5,15 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use  \App\InterfaceContainer\AuthorInterface as author;
 use Illuminate\Support\Facades\Validator;
-
+use  \App\InterfaceContainer\BookAuthorRelationInterface; 
 class AuthorController extends Controller
 {
     protected $authorobj;
     protected $err;
+    protected $rel;
     
-    function __construct(author $author){
+    function __construct(author $author, BookAuthorRelationInterface $rel){
         $this->authorobj = $author;
         $this->err=0;
+        $this->rel = $rel;
     }
 
     public function addAuthor(){
@@ -41,14 +43,22 @@ class AuthorController extends Controller
     }
 
     public function deleteAuthor($id = null){
-        $retval = $this->authorobj->deleteAuthor($id);
+        $retval = '';
+        $Is_attached = $this->rel->getCount($id);
+        if($Is_attached > 0){
+            $msg = $Is_attached;
+        }
+        else{
+            $msg = '';
+            $retval = $this->authorobj->deleteAuthor($id);
+        }
         if($retval > 0){
             $this->err = 1;
         }
         else{
         $this->err = 0;
         }
-       return redirect('/author/viewall')->with('status', $this->err);
+       return redirect('/author/viewall')->with(['status' => $this->err,'msg'=> $msg]); //two variable can be used in flashData
     }
 
     public function editAuthor($id = null){

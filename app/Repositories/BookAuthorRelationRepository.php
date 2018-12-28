@@ -24,4 +24,8 @@ class BookAuthorRelationRepository implements BookAuthorRelationInterface{
     public function destroyData($id){
         return $this->relationModel->where('book_id',$id)->forcedelete();
     }
+
+    public function getCount($id){
+        return $this->relationModel->where('author_id',$id)->count();
+    }
 }

@@ -4,14 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use  \App\InterfaceContainer\PublishersInterface as publisherInterface;
+use App\InterfaceContainer\BooksInterface;
 use Illuminate\Support\Facades\Validator;
 class PublishersController extends Controller
 {
     protected $publisherobj;
     protected $status;
-    function __construct(publisherInterface $var_publihser){
+    protected $rel;
+    function __construct(publisherInterface $var_publihser, BooksInterface $rel){
         $this->publisherobj = $var_publihser;
         $this->status=0;
+        $this->rel = $rel;
     }
 
     public function viewaddPublisher(){
@@ -39,14 +42,23 @@ class PublishersController extends Controller
     }
 
     public function deletePublisher($id = null){
-        $retval = $this->publisherobj->deletePublisher($id);
+        $retval = '';
+        $bookCount = $this->rel->getCount($id);
+        if($bookCount>0){
+            $msg = $bookCount;
+        }
+        else{
+            $msg ='';
+            $retval = $this->publisherobj->deletePublisher($id);
+        }
+        
         if($retval > 0){
             $this->status = 1;
         }
         else{
         $this->status = 0;
         }
-       return redirect('/publisher/viewall')->with('status', $this->status);
+       return redirect('/publisher/viewall')->with(['status' => $this->status,'msg' => $msg]);
     }
 
     public function editPublisher($id = null){

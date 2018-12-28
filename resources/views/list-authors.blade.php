@@ -23,6 +23,9 @@
             <div class="alert alert-success">Author successfully Deleted </div>
         @endif 
     @endif 
+    @if(session('msg'))
+        <div class="alert alert-danger"><b>Failed to Delete!</b> {{session('msg')}} book(s) are linked with this author.</div>
+    @endif
     </div>
     <table id="allauthors" class="table table-striped table-bordered hover" style="width:100%">
         <thead>
