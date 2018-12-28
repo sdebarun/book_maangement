@@ -32,9 +32,9 @@ class BookController extends Controller
     }
     public function doAddbook(Request $req){
         $req->validate([
-            'bookName' => ['required'],
+            'bookName' => ['required','unique:books'],
             'publisher_id' => ['required'],
-            'bookName' => ['required'],
+            'author_id' => ['required'],
         ]);
         $bookDetails = $req->all('bookName','publisher_id','bookDescription');
         $authorDetails = $req->input('authors');

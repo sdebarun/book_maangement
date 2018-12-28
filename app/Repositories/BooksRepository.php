@@ -33,4 +33,8 @@ class BooksRepository implements BooksInterface{
     public function updateBookdata($id,$data){
         return $this->booksModel->find($id)->update($data);
     }
+
+    public function getCount($id){
+        return $this->booksModel->where('publisher_id',$id)->count();
+    }
 }
