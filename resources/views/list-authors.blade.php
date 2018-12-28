@@ -17,14 +17,14 @@
     <hr/>
     @if(session('status'))
         @if(session('status')==0)
-            <div class="alert alert-danger">Author could not be Deleted </div>
+            <div class="alert alert-danger">{{Lang::get('messages.failure.delete')}} Author</div>
         @endif
         @if(session('status')==1)   
-            <div class="alert alert-success">Author successfully Deleted </div>
+            <div class="alert alert-success">Author {{Lang::get('messages.success.delete')}} </div>
         @endif 
     @endif 
     @if(session('msg'))
-        <div class="alert alert-danger"><b>Failed to Delete!</b> {{session('msg')}} book(s) are linked with this author.</div>
+        <div class="alert alert-danger"><b>{{Lang::get('messages.failure.delete')}}</b> {{session('msg')}} book(s) are linked with this author.</div>
     @endif
     </div>
     <table id="allauthors" class="table table-striped table-bordered hover" style="width:100%">
@@ -63,7 +63,7 @@
             @endforeach
         </tbody>
         <tfoot>
-            <tr>
+            <tr align="center">
                 <th>Sr.</th>
                 <th>Name</th>
                 <th>Description</th>

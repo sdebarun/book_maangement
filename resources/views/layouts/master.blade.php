@@ -108,7 +108,7 @@
             @yield('content')
 
             @hasSection('forms')
-            @yield('forms')
+                @yield('forms')
             @endif
             
         </main>

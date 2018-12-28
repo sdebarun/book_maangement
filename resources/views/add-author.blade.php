@@ -7,10 +7,10 @@
     <hr/>
     @if(session('status'))
         @if(session('status')==0)
-            <div class="alert alert-danger">Author could not be added </div>
+            <div class="alert alert-danger">Author {{Lang::get('messages.failure.add')}}</div>
         @endif
         @if(session('status')==1)   
-            <div class="alert alert-success">Author successfully added </div>
+            <div class="alert alert-success">Author {{Lang::get('messages.success.add')}} </div>
         @endif 
     @endif 
 
