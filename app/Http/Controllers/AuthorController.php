@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use  \App\InterfaceContainer\AuthorInterface as author;
+use  \App\InterfaceContainer\{AuthorInterface as author, BookAuthorRelationInterface};
 use Illuminate\Support\Facades\Validator;
-use  \App\InterfaceContainer\BookAuthorRelationInterface; 
 class AuthorController extends Controller
 {
     protected $authorobj;

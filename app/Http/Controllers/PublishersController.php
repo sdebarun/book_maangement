@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use  \App\InterfaceContainer\PublishersInterface as publisherInterface;
-use App\InterfaceContainer\BooksInterface;
+use  \App\InterfaceContainer\{PublishersInterface as publisherInterface, BooksInterface};
 use Illuminate\Support\Facades\Validator;
 class PublishersController extends Controller
 {

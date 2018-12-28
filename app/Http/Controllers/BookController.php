@@ -3,11 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\InterfaceContainer\BooksInterface;
-use App\InterfaceContainer\AuthorInterface;
-use App\InterfaceContainer\PublishersInterface;
-use App\InterfaceContainer\BookAuthorRelationInterface;
-use DB;
+use App\InterfaceContainer\{BooksInterface, AuthorInterface,PublishersInterface,BookAuthorRelationInterface};
 
 class BookController extends Controller
 {
