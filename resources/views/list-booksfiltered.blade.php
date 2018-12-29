@@ -15,26 +15,16 @@
             <div class="form-group">
                 <label for="dateFilter">Select Data</label>
                 <select id='dateFilter' class='form-control' name='startDate'>
-                    <option value="{{date('Y-m-d')}}">Today</option>
-                    <option value="{{date('Y-m-d', strtotime('-7 days'))}}">Last 7 days</option>
-                    <option value="{{date('Y-m-d', strtotime('-29 days'))}}">Last 30 days</option>
-                    <option value="custom">Custom</option>
+                    <option value="{{date('Y-m-d H:i:s')}}">Today</option>
+                    <option value="{{date('Y-m-d H:i:s', strtotime('-7 days'))}}">7 days</option>
                 </select>
             </div> 
-            <div id='custom_picker' class='form-group'>
-                <div class="form-group">
-                    <label>Start Date</label>
-                    <input type='date' class='form-control'name='customStartDate' placeholder='Select Strat Date'>
-                </div>
-                <div class="form-group">  
-                    <label>End Date:</label>  
-                    <input type='date' class='form-control'name='customEndDate' placeholder='Select End Date'>
-                </div>
+            <div class='from-group'>
+                <button class='btn btn-success form-control' type='submit'>Filter</button>
             </div>
-            <button class='btn btn-success' type='submit'>Filter</button>
         </form>   
     </div>
-<table class="table table-striped table-bordered hover" style="width:100%">
+<table id="allauthors" class="table table-striped table-bordered hover" style="width:100%">
         <thead>
             <tr align="center">
                 <th>Sr.</th>

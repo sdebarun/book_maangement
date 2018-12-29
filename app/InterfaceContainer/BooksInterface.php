@@ -10,5 +10,6 @@ interface BooksInterface {
     public function getCount($id);
     //testing pagination
     public function getAllBookspaginated();
+    public function filteredBookspaginated($dateRange);
 }
 ?>

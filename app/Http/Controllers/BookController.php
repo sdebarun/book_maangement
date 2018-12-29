@@ -116,12 +116,24 @@ class BookController extends Controller
 
     //testing pagination 
     public function viewAllbooksPaginated(){
-        $data['retval'] = $this->varBook->getAllBookspaginated();
-        echo "<pre>";
-        print_r($data);
+        $data = $this->varBook->getAllBookspaginated();
+        // echo "<pre>";
+        // print_r($data);
         return view('list-booksPaginated',$data);
     }
 
-
-    
+    public function viewfilteredData(Request $request){
+        $endDate = (!empty($request->input('customEndDate')) ? $request->input('customEndDate') : date('Y-m-d H:i:s'));
+        $startDate = (!empty($request->input('customStartDate')) ? $request->input('customStartDate'): $request->input('startDate'));
+        // $startDate = $request->input('customStartDate');
+        // $endDate =  $request->input('customEndDate');
+        $dateRange= [$startDate,$endDate];
+        print_r($dateRange);
+       
+        $data = $this->varBook->filteredBookspaginated($dateRange);
+        echo "<pre>";
+        print_r($data);
+        //return view('list-booksfiltered',$data);
+        //return view('list-booksPaginated',$data);
+    }
 }

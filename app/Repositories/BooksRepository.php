@@ -39,6 +39,11 @@ class BooksRepository implements BooksInterface{
     }
     //testing pagination
     public function getAllBookspaginated(){
-        return $this->booksModel->paginate(3);
+        //return $this->booksModel->whereBetween('created_at',['2018-11-01 09:13:05','2018-11-04 09:33:53'])->paginate(3);
+        return $this->booksModel->paginate(5);
+    }
+    public function filteredBookspaginated($dateRange){
+        return $this->booksModel->whereBetween('created_at',$dateRange)->paginate(2);
+        
     }
 }
