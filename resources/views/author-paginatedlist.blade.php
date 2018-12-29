@@ -97,7 +97,7 @@
             </tr>
         </tfoot>
     </table>  
-    {!!$retval->links() . 'Pages'!!}
+    {!!$retval->appends([Request::only(['startDate'=> 'startDate', 'customStartDate'=>'customStartDate', 'customEndDate'=> 'customEndDate'])])->render() . 'Pages'!!}
 </div>
 
 @endsection

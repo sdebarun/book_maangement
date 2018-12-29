@@ -91,9 +91,13 @@ class AuthorController extends Controller
         $startDate = (!empty($request->input('customStartDate')) ? $request->input('customStartDate'): $request->input('startDate'));
         $dateRange= [$startDate,$endDate];
         $data['retval'] = $this->authorobj->filteredAuthorpaginated($dateRange);
+        $data['startDate'] = $startDate;
+        $data ['endDate'] = $endDate;
+        // return $data;
         // echo "<pre>";
         // print_r($data);
         return view('author-paginatedlist',$data);
+        //return redirect('paginated/filteredAuthor')->with(['startDate' =>$startDate,'endDate' => $endDate, 'retval' => $data['retval'] ]);
     }
 
 }
