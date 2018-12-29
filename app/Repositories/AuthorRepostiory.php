@@ -31,6 +31,15 @@ Class AuthorRepostiory implements AuthorInterface{
     public function updateAuthor($id,$data){
         return $this->authorModel->find($id)->update($data);
     }
+
+    public function authorPaginated(){
+        return $this->authorModel->paginate(5);
+    }
+
+    public function filteredAuthorpaginated($dateRange){
+        return $this->authorModel->whereBetween('created_at',$dateRange)->paginate(1);
+        
+    }
 }
 
 ?>

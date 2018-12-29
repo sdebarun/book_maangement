@@ -7,5 +7,6 @@ interface AuthorInterface{
     public function deleteAuthor($id);
     public function getAuthorbyid($id);
     public function updateAuthor($id,$data);
+    public function filteredAuthorpaginated($dateRange);
 }
 ?>

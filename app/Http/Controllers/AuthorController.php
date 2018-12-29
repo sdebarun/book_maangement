@@ -79,4 +79,21 @@ class AuthorController extends Controller
        return redirect("/author/edit/$id")->with('status', $this->err);
     }
 
+    public function viewPaginatedlist(){
+        $data['retval'] = $this->authorobj->authorPaginated();
+        // echo "<pre>";
+        // print_r($data);
+        return view('author-paginatedlist',$data);
+    }
+
+    public function viewfilteredData(Request $request){
+        $endDate = (!empty($request->input('customEndDate')) ? $request->input('customEndDate') : date('Y-m-d H:i:s'));
+        $startDate = (!empty($request->input('customStartDate')) ? $request->input('customStartDate'): $request->input('startDate'));
+        $dateRange= [$startDate,$endDate];
+        $data['retval'] = $this->authorobj->filteredAuthorpaginated($dateRange);
+        // echo "<pre>";
+        // print_r($data);
+        return view('author-paginatedlist',$data);
+    }
+
 }
