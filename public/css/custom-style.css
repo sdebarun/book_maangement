@@ -25,6 +25,14 @@
 #dateFilter{
     margin-left: 10px; 
 }
+.noresult-col{
+    text-align:center;
+    font-size:18px;
+    background-color: rgba(227, 52, 47, 0.8);
+    color:#FFF;
+    font-weight:bold;
+    text-transform:uppercase;
+}
 /* #custom_picker{
     display: none;
 } */

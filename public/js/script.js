@@ -17,16 +17,16 @@ $(document).ready(function() {
             $('#custom_picker').fadeOut();
         }
     });
-  $('#allauthors').DataTable();
+    if($('.paginated_page_table tbody').text() === ''){
+        $('.paginated_page_table tbody').html("<tr><td colspan=5 class='noresult-col'>No result found</td></tr>")
+    }
   $('.del').click(function(){
       if(confirm('Sure you want to delete this ?')){
           $("#formTodel").submit();
-          // var id = $(this).attr('data-id');
-          // console.log(id);
       }
       else{
           return false;
       }
   });
-
+  $('#allauthors').DataTable();
 } );

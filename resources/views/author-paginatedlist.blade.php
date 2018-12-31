@@ -27,11 +27,10 @@
     </div>
     <div class='text-right datefilterWrapper'>
         <form action='/paginated/filteredAuthor' method="GET" class="form-inline">
-            @csrf
             <div class="form-group">
                 <label for="dateFilter">Select Data</label>
                 <select id='dateFilter' class='form-control' name='startDate'>
-                <option value="">All</option>
+                <option value="">---Select Filter---</option>
                     <option value="{{date('Y-m-d')}}">Today</option>
                     <option value="{{date('Y-m-d', strtotime('-7 days'))}}">Last 7 days</option>
                     <option value="{{date('Y-m-d', strtotime('-29 days'))}}">Last 30 days</option>

@@ -17,6 +17,7 @@ class CreateAuthorTable extends Migration
             $table->increments('id');
             $table->string('authorName',100);
             $table->text('authorDescription',500)->nullable();
+            $table->date('added_on')->default(date('Y-m-d'));
             $table->softDeletes();
             $table->timestamps();
         });

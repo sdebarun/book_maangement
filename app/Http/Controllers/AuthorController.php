@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use  \App\InterfaceContainer\{AuthorInterface as author, BookAuthorRelationInterface};
 use Illuminate\Support\Facades\Validator;
+use DB;
 class AuthorController extends Controller
 {
     protected $authorobj;
@@ -57,7 +58,7 @@ class AuthorController extends Controller
         else{
         $this->err = 0;
         }
-       return redirect('/author/viewall')->with(['status' => $this->err,'msg'=> $msg]); //two variable can be used in flashData
+       return redirect()->back()->with(['status' => $this->err,'msg'=> $msg]); //two variable can be used in flashData
     }
 
     public function editAuthor($id = null){
@@ -87,11 +88,13 @@ class AuthorController extends Controller
     }
 
     public function viewfilteredData(Request $request){
+        //pDB::enableQueryLog();
         $endDate = (!empty($request->input('customEndDate')) ? $request->input('customEndDate') : date('Y-m-d'));
         $startDate = (!empty($request->input('customStartDate')) ? $request->input('customStartDate'): $request->input('startDate'));
         $dateRange= [$startDate,$endDate];
-        // print_r($dateRange);
+        //print_r($dateRange);
         $data['retval'] = $this->authorobj->filteredAuthorpaginated($dateRange);
+        //dd(DB::getQueryLog());
         return view('author-paginatedlist',$data);
     }
 
