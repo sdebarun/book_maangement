@@ -54,6 +54,6 @@ Route::group(['prefix'=>'paginated'],function(){
     Route::get('books','BookController@viewAllbooksPaginated');
     Route::post('filtered','BookController@viewfilteredData');
     Route::get('author','AuthorController@viewPaginatedlist');
-    Route::any('filteredAuthor','AuthorController@viewfilteredData');
+    Route::get('filteredAuthor','AuthorController@viewfilteredData');
 });
 

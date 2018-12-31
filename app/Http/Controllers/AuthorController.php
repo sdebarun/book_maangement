@@ -87,17 +87,12 @@ class AuthorController extends Controller
     }
 
     public function viewfilteredData(Request $request){
-        $endDate = (!empty($request->input('customEndDate')) ? $request->input('customEndDate') : date('Y-m-d H:i:s'));
+        $endDate = (!empty($request->input('customEndDate')) ? $request->input('customEndDate') : date('Y-m-d'));
         $startDate = (!empty($request->input('customStartDate')) ? $request->input('customStartDate'): $request->input('startDate'));
         $dateRange= [$startDate,$endDate];
+        // print_r($dateRange);
         $data['retval'] = $this->authorobj->filteredAuthorpaginated($dateRange);
-        $data['startDate'] = $startDate;
-        $data ['endDate'] = $endDate;
-        // return $data;
-        // echo "<pre>";
-        // print_r($data);
         return view('author-paginatedlist',$data);
-        //return redirect('paginated/filteredAuthor')->with(['startDate' =>$startDate,'endDate' => $endDate, 'retval' => $data['retval'] ]);
     }
 
 }

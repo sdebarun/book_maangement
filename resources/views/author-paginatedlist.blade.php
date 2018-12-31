@@ -26,7 +26,7 @@
     @endif
     </div>
     <div class='text-right datefilterWrapper'>
-        <form action='/paginated/filteredAuthor' method="POST" class="form-inline">
+        <form action='/paginated/filteredAuthor' method="GET" class="form-inline">
             @csrf
             <div class="form-group">
                 <label for="dateFilter">Select Data</label>
@@ -97,7 +97,7 @@
             </tr>
         </tfoot>
     </table>  
-    {!!$retval->appends([Request::only(['startDate'=> 'startDate', 'customStartDate'=>'customStartDate', 'customEndDate'=> 'customEndDate'])])->render() . 'Pages'!!}
+    {!!$retval->appends(Request::except('page'))->render() . 'Pages'!!}
 </div>
 
 @endsection
