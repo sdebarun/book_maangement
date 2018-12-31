@@ -1,0 +1,30 @@
+.datefilterWrapper{float:left;margin-bottom:25px;}
+
+.paginated_page_table td{
+    vertical-align: middle;
+}
+.anchor-wrapper {
+    float: left;
+   padding-left:25px;
+}
+#custom_picker {
+    padding-left: 15px;
+}
+
+#custom_picker .form-group label {
+    padding: 0 10px 0 10px;
+}
+
+.form-group .btn.btn-success {
+    margin-left: 10px;
+}
+
+.filter-btn{
+    margin-left:10px;
+}
+#dateFilter{
+    margin-left: 10px; 
+}
+/* #custom_picker{
+    display: none;
+} */

@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.master')
 @section('additional_styles')
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="{{asset('css/style.css')}}"/>
+    <link rel="stylesheet" href="{{asset('css/custom-style.css')}}"/>
 @endsection
    
 @section('additional_scripts')
@@ -31,6 +31,7 @@
             <div class="form-group">
                 <label for="dateFilter">Select Data</label>
                 <select id='dateFilter' class='form-control' name='startDate'>
+                <option value="">All</option>
                     <option value="{{date('Y-m-d')}}">Today</option>
                     <option value="{{date('Y-m-d', strtotime('-7 days'))}}">Last 7 days</option>
                     <option value="{{date('Y-m-d', strtotime('-29 days'))}}">Last 30 days</option>
@@ -47,10 +48,10 @@
                     <input type='date' class='form-control'name='customEndDate' placeholder='Select End Date'>
                 </div>
             </div>
-            <button class='btn btn-success' type='submit'>Filter</button>
+            <button class='btn btn-success filter-btn' type='submit'>Filter</button>
         </form>   
     </div>
-    <table class="table table-striped table-bordered hover" style="width:100%">
+    <table class="table table-striped table-bordered hover paginated_page_table" style="width:100%">
         <thead>
             <tr align="center">
                 <th>Sr.</th>
@@ -75,12 +76,12 @@
                 <td>{{date('d-m-Y',strtotime($val->created_at))}}</td>
                 <td> 
                     <span class='anchor-wrapper'><a href="/author/edit/{{$val->id}}" class="btn btn-primary btn-sm">
-                        Edit<i class="fa fa-pencil" aria-hidden="true"></i>
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
                     </a></span>
                     <form action="{{route('author.delete', ['id' => $val->id])}}" method="POST" id='formTodel'>
                         @csrf
                         <button type='submit' class="btn btn-danger btn-sm del" data-id="{{$val->id}}">
-                            Delete<i class="fa fa-trash-o" aria-hidden="true"></i> 
+                            <i class="fa fa-trash-o" aria-hidden="true"></i> 
                         </button>
                     </form>
                 </td>
@@ -97,7 +98,7 @@
             </tr>
         </tfoot>
     </table>  
-    {!!$retval->appends(Request::except('page'))->render() . 'Pages'!!}
+    {!!$retval->appends(Request::except('page'))->links()!!}
 </div>
 
 @endsection

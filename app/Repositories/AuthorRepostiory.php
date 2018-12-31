@@ -37,7 +37,7 @@ Class AuthorRepostiory implements AuthorInterface{
     }
 
     public function filteredAuthorpaginated($dateRange){
-        return $this->authorModel->whereBetween('created_at',$dateRange)->paginate(1);
+        return $this->authorModel->whereBetween('created_at',$dateRange)->paginate(5);
         
     }
 }

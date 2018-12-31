@@ -42,6 +42,7 @@
                         <ul class='submenu'>
                             <li><a href="/author/add">Add Author</a></li>
                             <li><a href="/author/viewall">View Author</a></li> 
+                            <li><a href="/paginated/author">View Paginated Author</a></li> 
                         </ul>
                     <li class='parent-menu'><a href='#'>Publisher</a></li>
                     <ul class='submenu'>
