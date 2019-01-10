@@ -12,7 +12,7 @@ class PublisherController extends Controller
     protected $rel;
     function __construct(publisherInterface $var_publihser, BooksInterface $rel){
         $this->publisherobj = $var_publihser;
-        $this->status=0;
+        $this->status=false;
         $this->rel = $rel;
     }
 
@@ -26,5 +26,25 @@ class PublisherController extends Controller
         } catch (JWTException $th) {
             
         }
-}
+    }
+
+    public function createPublisher(Request $request){
+        $request->validate([
+            'publisherName' => ['required', 'string', 'max:255','unique:publishers'],
+        ]);
+       $retval =  $this->publisherobj->addPublisher($request->all());
+       if($retval->id > 0){
+            $this->status = true;
+            return response()->json([
+                "status" => $this->status,
+                "message" => "Successfully added the publisher",
+            ]);
+       }
+       else{
+        return response()->json([
+            "status" => $this->status,
+            "message" => "Failed to add the publisher",
+        ]);
+       }
+    }
 }

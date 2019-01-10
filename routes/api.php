@@ -32,5 +32,6 @@ Route::group(['prefix' => 'jwt','middleware' => 'jwt.auth'], function ($router) 
     Route::post('me', 'AuthController@me');
     Route::post('userdetails', 'AuthController@getAuthenticatedUser');
     Route::get('/viewallpublisher','apiController\PublisherController@listallpublishers');
+    Route::post('/addpublisher','apiController\PublisherController@createPublisher');
 
 });
