@@ -35,3 +35,5 @@ Route::group(['prefix' => 'jwt','middleware' => 'jwt.auth'], function ($router) 
     Route::post('/addpublisher','apiController\PublisherController@createPublisher');
 
 });
+Route::get('routeprefix','PublishersController@checkPrefixRoute');
+Route::get('routeisapi','PublishersController@checkIsapi');

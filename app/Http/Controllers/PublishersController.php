@@ -78,5 +78,17 @@ class PublishersController extends Controller
         }
        return redirect("/publisher/edit/$id")->with('status', $this->status);
     }
+    public function checkPrefixRoute(Request $request){
+       dd($request->route()->getPrefix());
+    }
+
+    public function checkIsapi(Request $request){
+        if($request->is('api/*')){
+            return "it is an api route";
+        }
+        else{
+            return "it is an web route";
+        }
+    }
 
 }

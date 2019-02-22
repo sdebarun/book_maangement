@@ -57,3 +57,5 @@ Route::group(['prefix'=>'paginated','middleware'=>'auth'],function(){
     Route::get('filteredAuthor','AuthorController@viewfilteredData');
 });
 
+Route::get('routeprefix','PublishersController@checkPrefixRoute');
+Route::get('routeisapi','PublishersController@checkIsapi');
