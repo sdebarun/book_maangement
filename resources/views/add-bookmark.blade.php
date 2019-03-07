@@ -30,6 +30,15 @@
             <label for="publisherName">Name of the Bookmark</label>
             <input type="file" class="form-control" id="bookMarkIMage" name='bookMarkIMage'>
         </div>
+        <div class="form-group">
+            <label for="bookname">Attached with</label>
+            <select id="bookname" name="bookname" class="form-control">
+                <option value="-1">---Select Book---</option> 
+                @foreach($books as $book)
+                    <option value="{{$book->id}}">{{$book->bookName}}</option>           
+                @endforeach
+            </select>
+        </div>
         <button type="submit" class="btn btn-default">Submit</button>
     </form>
 </div>

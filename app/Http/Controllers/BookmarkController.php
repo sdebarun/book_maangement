@@ -3,18 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use  \App\InterfaceContainer\BookmarkInterface;
-use File;
+use \App\InterfaceContainer\BookmarkInterface;
+use \App\InterfaceContainer\BooksInterface;
 class BookmarkController extends Controller
 {
     protected $bookmark;
-    function __construct(BookmarkInterface $bookmarkInterface)
+    protected $books;
+    function __construct(BookmarkInterface $bookmarkInterface, BooksInterface $books)
     {
         $this->bookmark = $bookmarkInterface;
+        $this->books = $books;
     }
     
     public function addMark(){
-        return view('add-bookmark');
+        $data["books"] = $this->books->getAllBooks();
+        return view('add-bookmark',$data);
     }
 
     public function doaddmark(Request $request){
