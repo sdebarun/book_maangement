@@ -24,10 +24,10 @@
         </div>
     @endif
 
-    <form action="/publisher/doAddPublisher" method='POST'>
+    <form action="/bookmarks/doaddmark" method='POST' enctype="multipart/form-data">
         @csrf
         <div class="form-group">
-            <label for="publisherName">Name of the Publisher</label>
+            <label for="publisherName">Name of the Bookmark</label>
             <input type="file" class="form-control" id="bookMarkIMage" name='bookMarkIMage'>
         </div>
         <button type="submit" class="btn btn-default">Submit</button>

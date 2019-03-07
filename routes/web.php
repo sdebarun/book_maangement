@@ -58,6 +58,7 @@ Route::group(['prefix'=>'paginated','middleware'=>'auth'],function(){
 });
 Route::group(['prefix'=>'bookmarks','middleware'=>'auth'],function(){
     Route::get('add',"BookmarkController@addMark");
+    Route::post('doaddmark','BookmarkController@doaddmark');
 });
 
 Route::get('routeprefix','PublishersController@checkPrefixRoute');
