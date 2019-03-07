@@ -56,6 +56,9 @@ Route::group(['prefix'=>'paginated','middleware'=>'auth'],function(){
     Route::get('author','AuthorController@viewPaginatedlist');
     Route::get('filteredAuthor','AuthorController@viewfilteredData');
 });
+Route::group(['prefix'=>'bookmarks','middleware'=>'auth'],function(){
+    Route::get('add',"BookmarkController@addMark");
+});
 
 Route::get('routeprefix','PublishersController@checkPrefixRoute');
 Route::get('routeisapi','PublishersController@checkIsapi');
