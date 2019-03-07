@@ -1,4 +1,3 @@
-<<<<<<< 576a0eaf76cd22fd82e031fa751fb8f08c6c8a74
 vendor/
 node_modules/
 npm-debug.log
@@ -36,3 +35,4 @@ yarn-error.log
 .env
 .phpunit.result.cache
 >>>>>>> author add completed initially
+/public/images/*
