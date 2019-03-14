@@ -57,3 +57,9 @@ Route::group(['prefix'=>'paginated','middleware'=>'auth'],function(){
     Route::get('filteredAuthor','AuthorController@viewfilteredData');
 });
 
+<<<<<<< Updated upstream
+=======
+Route::get('routeprefix','PublishersController@checkPrefixRoute');
+Route::get('routeisapi','PublishersController@checkIsapi');
+Route::post('sendmail','EmailController@sendEmail');
+>>>>>>> Stashed changes

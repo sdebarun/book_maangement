@@ -41,11 +41,30 @@ class BookController extends Controller
             $retval['authorRel'] = $this->RelationObj->CreateRelation($data);
         }
         if($retval['authorRel']->id > 0 && $retval['bookInsert']->id > 0){
-                $this->status = 1;
+            $this->status = 1;
+            $email = new \SendGrid\Mail\Mail(); 
+            $email->setFrom("test@example.com", "Example User");
+            $email->setSubject("Sending with SendGrid is Fun");
+            $email->addTo("debarun@itobuz.com", "Example User");
+            $email->addContent("text/plain", "and easy to do anywhere, even with PHP");
+            $email->addContent(
+                "text/html", "<strong>and easy to do anywhere, even with PHP</strong>"
+            );
+            $sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
+            try {
+                $response = $sendgrid->send($email);
+                print $response->statusCode() . "\n";
+                print_r($response->headers());
+                print $response->body() . "\n";
+            } catch (Exception $e) {
+                echo 'Caught exception: '. $e->getMessage() ."\n";
+            }
         }
         else{
             $this->status = 0;
         }
+
+
         return redirect('/books/add')->with('status', $this->status);
     }
 
